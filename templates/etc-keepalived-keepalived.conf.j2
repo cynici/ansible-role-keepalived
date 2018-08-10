@@ -16,9 +16,7 @@ global_defs {
     {{ key }} {{ value }}
 {% endfor %}
 
-{% if keepalived_global_defs_extra %}
-{{ keepalived_global_defs_extra | indent(4, true)}}
-{% endif %}
+{{ keepalived_global_defs_extra | default('') | indent(4, true) }}
 }
 
 # Requires keepalived-1.1.13
